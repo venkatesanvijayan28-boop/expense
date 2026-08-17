@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartSpend Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>SmartSpend</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#">Dashboard</a></li>
+                    <li><a href="#">Expenses</a></li>
+                    <li><a href="#">Budget</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <div class="search-bar">
+                    <input type="text" placeholder="🔍 Search expenses...">
+                </div>
+                <div class="user-actions">
+                    <button id="theme-toggle">☀</button>
+                    <div class="user-profile">User Profile</div>
+                </div>
+            </header>
+
+            <section class="welcome-section">
+                <h1>Good Morning, Mohan 👋</h1>
+                <p>Here's your financial overview for August 2026.</p>
+                <button class="add-expense-btn" onclick="openModal()">+ Add Expense</button>
+            </section>
+
+            <section class="summary-cards">
+                <div class="card">
+                    <h3>Total Income</h3>
+                    <h2>₹50,000</h2>
+                    <p>This Month</p>
+                </div>
+                <div class="card">
+                    <h3>Total Expenses</h3>
+                    <h2>₹32,500</h2>
+                    <p class="trend-down">↓ 8.5% from last month</p>
+                </div>
+                <div class="card">
+                    <h3>Remaining Budget</h3>
+                    <h2>₹7,500</h2>
+                    <p>18.75% remaining</p>
+                </div>
+                <div class="card">
+                    <h3>Savings</h3>
+                    <h2>₹17,500</h2>
+                    <p>35% savings rate</p>
+                </div>
+            </section>
+
+            <section class="charts-section">
+                <div class="chart-container">
+                    <h3>Spending by Category</h3>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add Expense Modal -->
+    <div id="expenseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add New Expense</h2>
+            <form id="addExpenseForm">
+                <input type="number" id="amount" placeholder="Amount (₹)" required>
+                <select id="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Food">🍔 Food</option>
+                    <option value="Transport">🚗 Transport</option>
+                    <option value="Rent">🏠 Rent</option>
+                </select>
+                <input type="text" id="description" placeholder="Description" required>
+                <input type="date" id="date" required>
+                <button type="submit">Save Expense</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
